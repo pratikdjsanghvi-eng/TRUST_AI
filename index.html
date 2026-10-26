@@ -1,0 +1,1225 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrustCheck - Verify Before You Buy</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 8%;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #2563eb;
+        }
+
+        .tagline {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            text-align: center;
+            padding: 75px 20px 50px;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+            line-height: 1.7;
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+
+        /* ================= SEARCH ================= */
+
+        .search-box {
+            max-width: 800px;
+            margin: 35px auto 0;
+
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+
+            padding: 17px 18px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 10px;
+
+            background: white;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-box button {
+            padding: 17px 28px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .search-box button:hover {
+            background: #1d4ed8;
+        }
+
+        .search-box button:disabled {
+            background: #93c5fd;
+            cursor: not-allowed;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .container {
+            max-width: 1100px;
+
+            margin: 20px auto 80px;
+
+            padding: 0 20px;
+        }
+
+
+        /* ================= REPORT ================= */
+
+        .report {
+            display: none;
+        }
+
+
+        /* ================= PRODUCT SUMMARY ================= */
+
+        .product-summary {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            border: 1px solid #e5e7eb;
+
+            margin-bottom: 20px;
+        }
+
+        .product-summary h2 {
+            font-size: 24px;
+
+            margin-bottom: 10px;
+        }
+
+        .product-url {
+            color: #6b7280;
+
+            font-size: 14px;
+
+            word-break: break-all;
+        }
+
+
+        /* ================= STATUS ================= */
+
+        .status-card {
+            background: white;
+
+            padding: 25px 30px;
+
+            border-radius: 16px;
+
+            border: 1px solid #e5e7eb;
+
+            margin-bottom: 20px;
+        }
+
+        .status-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .status-header h2 {
+            font-size: 21px;
+        }
+
+        .status-badge {
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            background: #fef3c7;
+
+            color: #92400e;
+
+            font-weight: 600;
+
+            font-size: 13px;
+        }
+
+        .status-description {
+            margin-top: 12px;
+
+            color: #6b7280;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================= GRID ================= */
+
+        .grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        /* ================= CARDS ================= */
+
+        .card {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 16px;
+
+            border: 1px solid #e5e7eb;
+        }
+
+        .card h3 {
+            font-size: 18px;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* ================= INFORMATION ROW ================= */
+
+        .item {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            gap: 20px;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item-label {
+            color: #6b7280;
+        }
+
+        .item-value {
+            font-weight: 600;
+
+            text-align: right;
+
+            max-width: 60%;
+
+            word-break: break-word;
+        }
+
+
+        /* ================= COLORS ================= */
+
+        .verified {
+            color: #15803d;
+        }
+
+        .warning {
+            color: #b45309;
+        }
+
+        .danger {
+            color: #dc2626;
+        }
+
+        .unknown {
+            color: #6b7280;
+        }
+
+
+        /* ================= DESCRIPTION ================= */
+
+        .description {
+            color: #6b7280;
+
+            line-height: 1.7;
+
+            margin-top: 10px;
+        }
+
+
+        /* ================= LOADING ================= */
+
+        .loading {
+            display: none;
+
+            text-align: center;
+
+            padding: 30px;
+
+            color: #6b7280;
+        }
+
+        .spinner {
+            width: 30px;
+
+            height: 30px;
+
+            border: 3px solid #e5e7eb;
+
+            border-top: 3px solid #2563eb;
+
+            border-radius: 50%;
+
+            animation: spin 0.8s linear infinite;
+
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* ================= ERROR ================= */
+
+        .error {
+            display: none;
+
+            background: #fef2f2;
+
+            border: 1px solid #fecaca;
+
+            color: #991b1b;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+            margin-top: 20px;
+
+            line-height: 1.5;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            color: #9ca3af;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .status-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .item {
+                flex-direction: column;
+
+                gap: 5px;
+            }
+
+            .item-value {
+                text-align: left;
+
+                max-width: 100%;
+            }
+
+            .tagline {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+            Trust<span>Check</span>
+        </div>
+
+        <div class="tagline">
+            Verify before you buy
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <h1>
+        Verify <span>Before</span> You Buy
+    </h1>
+
+    <p>
+        Enter a product URL and TrustCheck will analyze
+        the available product information and provide
+        a structured verification report.
+    </p>
+
+
+    <div class="search-box">
+
+        <input
+            id="productURL"
+            type="url"
+            placeholder="Paste product URL here..."
+        >
+
+        <button
+            id="verifyButton"
+            onclick="analyzeProduct()"
+        >
+            Verify Product
+        </button>
+
+    </div>
+
+
+    <div
+        id="errorMessage"
+        class="error"
+    ></div>
+
+</section>
+
+
+
+<!-- ================= CONTENT ================= -->
+
+<div class="container">
+
+
+    <!-- LOADING -->
+
+    <div
+        id="loading"
+        class="loading"
+    >
+
+        <div class="spinner"></div>
+
+        <p>
+            Analyzing product information...
+        </p>
+
+    </div>
+
+
+
+    <!-- REPORT -->
+
+    <div
+        id="report"
+        class="report"
+    >
+
+
+        <!-- PRODUCT -->
+
+        <div class="product-summary">
+
+            <h2 id="productName">
+                Product
+            </h2>
+
+            <p
+                id="productURLDisplay"
+                class="product-url"
+            >
+            </p>
+
+        </div>
+
+
+
+        <!-- STATUS -->
+
+        <div class="status-card">
+
+            <div class="status-header">
+
+                <h2>
+                    Verification Status
+                </h2>
+
+                <span
+                    id="statusBadge"
+                    class="status-badge"
+                >
+                    Needs Verification
+                </span>
+
+            </div>
+
+            <p
+                id="statusDescription"
+                class="status-description"
+            >
+                The product information has been collected.
+                Further verification checks will be added
+                as the TrustCheck analysis engine develops.
+            </p>
+
+        </div>
+
+
+
+        <!-- INFORMATION GRID -->
+
+        <div class="grid">
+
+
+            <!-- SELLER -->
+
+            <div class="card">
+
+                <h3>
+                    🔎 Seller Information
+                </h3>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Seller
+                    </span>
+
+                    <span
+                        id="seller"
+                        class="item-value unknown"
+                    >
+                        Not available
+                    </span>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Seller verification
+                    </span>
+
+                    <span
+                        class="item-value unknown"
+                    >
+                        Not checked yet
+                    </span>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Online reputation
+                    </span>
+
+                    <span
+                        class="item-value unknown"
+                    >
+                        Not checked yet
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT -->
+
+            <div class="card">
+
+                <h3>
+                    🏷️ Product Information
+                </h3>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Product name
+                    </span>
+
+                    <span
+                        id="productTitle"
+                        class="item-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Price
+                    </span>
+
+                    <span
+                        id="price"
+                        class="item-value"
+                    >
+                        Not available
+                    </span>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Ingredients
+                    </span>
+
+                    <span
+                        id="ingredients"
+                        class="item-value unknown"
+                    >
+                        Not extracted
+                    </span>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Certification
+                    </span>
+
+                    <span
+                        class="item-value unknown"
+                    >
+                        Not checked yet
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="card">
+
+                <h3>
+                    📋 Product Description
+                </h3>
+
+                <p
+                    id="description"
+                    class="description"
+                >
+                    No product description was found.
+                </p>
+
+            </div>
+
+
+
+            <!-- REVIEWS -->
+
+            <div class="card">
+
+                <h3>
+                    ⭐ Review Analysis
+                </h3>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Rating
+                    </span>
+
+                    <span
+                        class="item-value unknown"
+                    >
+                        Not checked yet
+                    </span>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Review count
+                    </span>
+
+                    <span
+                        class="item-value unknown"
+                    >
+                        Not checked yet
+                    </span>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Suspicious patterns
+                    </span>
+
+                    <span
+                        class="item-value unknown"
+                    >
+                        Not checked yet
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRICE ANALYSIS -->
+
+            <div class="card">
+
+                <h3>
+                    💰 Price Analysis
+                </h3>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Listed price
+                    </span>
+
+                    <span
+                        id="priceAnalysis"
+                        class="item-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Market comparison
+                    </span>
+
+                    <span
+                        class="item-value unknown"
+                    >
+                        Not checked yet
+                    </span>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span class="item-label">
+                        Price anomaly
+                    </span>
+
+                    <span
+                        class="item-value unknown"
+                    >
+                        Not checked yet
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- WARNINGS -->
+
+            <div class="card">
+
+                <h3>
+                    ⚠️ Verification Notes
+                </h3>
+
+                <p
+                    class="description"
+                >
+                    TrustCheck currently displays information
+                    extracted from the product webpage.
+                    Seller reputation, reviews, certifications,
+                    price comparisons and other verification
+                    checks will be added in the next stages.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    TrustCheck • Product information verification prototype
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+async function analyzeProduct() {
+
+    const urlInput =
+        document.getElementById("productURL");
+
+    const button =
+        document.getElementById("verifyButton");
+
+    const loading =
+        document.getElementById("loading");
+
+    const report =
+        document.getElementById("report");
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+
+    const url =
+        urlInput.value.trim();
+
+
+    /* Clear previous error */
+
+    errorMessage.style.display = "none";
+
+    errorMessage.innerText = "";
+
+
+    /* Validate URL */
+
+    if (!url) {
+
+        showError(
+            "Please enter a product URL."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        new URL(url);
+
+    } catch {
+
+        showError(
+            "Please enter a valid URL, for example: https://example.com/product"
+        );
+
+        return;
+
+    }
+
+
+    /* UI loading state */
+
+    button.disabled = true;
+
+    button.innerText = "Analyzing...";
+
+    report.style.display = "none";
+
+    loading.style.display = "block";
+
+
+    try {
+
+
+        /* Send URL to FastAPI */
+
+        const response = await fetch(
+
+            "http://127.0.0.1:8000/analyze",
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type":
+                        "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    url: url
+
+                })
+
+            }
+
+        );
+
+
+        const data =
+            await response.json();
+
+
+        /* Backend error */
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "The server returned an error."
+            );
+
+        }
+
+
+        /* Display result */
+
+        displayProduct(
+            data.product
+        );
+
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        showError(
+
+            "Could not analyze the product. " +
+            error.message
+
+        );
+
+    }
+
+    finally {
+
+        button.disabled = false;
+
+        button.innerText =
+            "Verify Product";
+
+        loading.style.display =
+            "none";
+
+    }
+
+}
+
+
+
+/* ================= DISPLAY PRODUCT ================= */
+
+
+function displayProduct(product) {
+
+
+    const report =
+        document.getElementById("report");
+
+
+    report.style.display =
+        "block";
+
+
+    /* Product name */
+
+    const title =
+        product.title ||
+        "Product name unavailable";
+
+
+    document.getElementById(
+        "productName"
+    ).innerText = title;
+
+
+    document.getElementById(
+        "productTitle"
+    ).innerText = title;
+
+
+    /* URL */
+
+    document.getElementById(
+        "productURLDisplay"
+    ).innerText =
+        product.url || "URL unavailable";
+
+
+    /* Price */
+
+    const price =
+        product.price ||
+        "Not available";
+
+
+    document.getElementById(
+        "price"
+    ).innerText = price;
+
+
+    document.getElementById(
+        "priceAnalysis"
+    ).innerText = price;
+
+
+    /* Seller */
+
+    document.getElementById(
+        "seller"
+    ).innerText =
+
+        product.seller ||
+        "Not extracted";
+
+
+    /* Ingredients */
+
+    document.getElementById(
+        "ingredients"
+    ).innerText =
+
+        product.ingredients ||
+        "Not extracted";
+
+
+    /* Description */
+
+    document.getElementById(
+        "description"
+    ).innerText =
+
+        product.description ||
+        "No product description was found.";
+
+
+    /* Current status */
+
+    document.getElementById(
+        "statusBadge"
+    ).innerText =
+        "Needs Verification";
+
+
+    document.getElementById(
+        "statusDescription"
+    ).innerText =
+
+        "Basic product information was successfully " +
+        "collected from the webpage. Additional " +
+        "seller, review, certification and market " +
+        "verification checks will be performed in " +
+        "future analysis stages.";
+
+
+    /* Scroll to report */
+
+    setTimeout(() => {
+
+        report.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+    }, 100);
+
+}
+
+
+
+/* ================= ERROR ================= */
+
+
+function showError(message) {
+
+    const error =
+        document.getElementById(
+            "errorMessage"
+        );
+
+    error.innerText =
+        message;
+
+    error.style.display =
+        "block";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
+```
